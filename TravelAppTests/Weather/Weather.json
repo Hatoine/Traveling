@@ -1,0 +1,81 @@
+{
+    "cnt": 2,
+    "list": [
+        {
+            "coord": {
+                "lon": -74.01,
+                "lat": 40.71
+            },
+            "sys": {
+                "country": "US",
+                "timezone": -14400,
+                "sunrise": 1572261678,
+                "sunset": 1572299889
+            },
+            "weather": [
+                {
+                    "id": 802,
+                    "main": "Clouds",
+                    "description": "scattered clouds",
+                    "icon": "03d"
+                }
+            ],
+            "main": {
+                "temp": 13.02,
+                "pressure": 1021,
+                "humidity": 76,
+                "temp_min": 10.56,
+                "temp_max": 15
+            },
+            "visibility": 16093,
+            "wind": {
+                "speed": 1.5,
+                "deg": 30
+            },
+            "clouds": {
+                "all": 40
+            },
+            "dt": 1572264474,
+            "id": 5128581,
+            "name": "New York"
+        },
+        {
+            "coord": {
+                "lon": 5.02,
+                "lat": 47.32
+            },
+            "sys": {
+                "country": "FR",
+                "timezone": 3600,
+                "sunrise": 1572243391,
+                "sunset": 1572280244
+            },
+            "weather": [
+                {
+                    "id": 804,
+                    "main": "Clouds",
+                    "description": "overcast clouds",
+                    "icon": "04d"
+                }
+            ],
+            "main": {
+                "temp": 11.58,
+                "pressure": 1019,
+                "humidity": 93,
+                "temp_min": 11,
+                "temp_max": 12
+            },
+            "visibility": 10000,
+            "wind": {
+                "speed": 4.6,
+                "deg": 10
+            },
+            "clouds": {
+                "all": 90
+            },
+            "dt": 1572264790,
+            "id": 6453767,
+            "name": "Dijon"
+        }
+    ]
+}
