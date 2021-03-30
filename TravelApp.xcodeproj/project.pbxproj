@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,7 +14,7 @@
 		FE198BC323573FD3003F616F /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE198BC223573FD3003F616F /* FakeResponseData.swift */; };
 		FE1C090D236834C7009C7E74 /* TranslationStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1C090C236834C7009C7E74 /* TranslationStruct.swift */; };
 		FE1C090F236834EC009C7E74 /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1C090E236834EC009C7E74 /* TranslationService.swift */; };
-		FE1C0911236836CD009C7E74 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1C0910236836CD009C7E74 /* TranslationViewController.swift */; };
+		FE1C0911236836CD009C7E74 /* TranslationViewController .swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1C0910236836CD009C7E74 /* TranslationViewController .swift */; };
 		FE20EE91235746D5005F9E4A /* URLSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE20EE90235746D5005F9E4A /* URLSessionFake.swift */; };
 		FE20EEA32357540D005F9E4A /* ExchangeServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE20EEA22357540D005F9E4A /* ExchangeServiceTests.swift */; };
 		FE25859A25E64A830058C389 /* ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE25859925E64A830058C389 /* ExtensionViewController.swift */; };
@@ -31,6 +31,7 @@
 		FE6B41392359AFFC00270345 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6B41382359AFFC00270345 /* WeatherViewController.swift */; };
 		FEA55B762366E48600A9F18D /* WeatherStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA55B752366E48600A9F18D /* WeatherStruct.swift */; };
 		FEA55B7A2366FF6000A9F18D /* RatesStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA55B792366FF6000A9F18D /* RatesStruct.swift */; };
+		FEDCE1E9261309FA0017D400 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = FEDCE1E8261309FA0017D400 /* Reachability */; };
 		FEE00D40233A59A00047CF83 /* ExchangeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE00D3F233A59A00047CF83 /* ExchangeService.swift */; };
 		FEF459D7238D14AA002D8EF7 /* GpsWeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF459D6238D14AA002D8EF7 /* GpsWeatherService.swift */; };
 		FEF692CD232B826F007747E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF692CC232B826F007747E4 /* AppDelegate.swift */; };
@@ -75,7 +76,7 @@
 		FE198BC223573FD3003F616F /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		FE1C090C236834C7009C7E74 /* TranslationStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationStruct.swift; sourceTree = "<group>"; };
 		FE1C090E236834EC009C7E74 /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
-		FE1C0910236836CD009C7E74 /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
+		FE1C0910236836CD009C7E74 /* TranslationViewController .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TranslationViewController .swift"; sourceTree = "<group>"; };
 		FE20EE90235746D5005F9E4A /* URLSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionFake.swift; sourceTree = "<group>"; };
 		FE20EEA22357540D005F9E4A /* ExchangeServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeServiceTests.swift; sourceTree = "<group>"; };
 		FE25859925E64A830058C389 /* ExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +112,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				434CE463CD78AB16D3536028 /* libPods-TravelApp.a in Frameworks */,
+				FEDCE1E9261309FA0017D400 /* Reachability in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,7 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				FE3A8E3F2360428E00FC9FC2 /* ViewControllerAlert.swift */,
-				FE1C0910236836CD009C7E74 /* TranslationViewController.swift */,
+				FE1C0910236836CD009C7E74 /* TranslationViewController .swift */,
 				FE6B41382359AFFC00270345 /* WeatherViewController.swift */,
 				FEF692FA232B83D3007747E4 /* RateViewController.swift */,
 				FE25859925E64A830058C389 /* ExtensionViewController.swift */,
@@ -308,6 +310,9 @@
 			dependencies = (
 			);
 			name = TravelApp;
+			packageProductDependencies = (
+				FEDCE1E8261309FA0017D400 /* Reachability */,
+			);
 			productName = TravelApp;
 			productReference = FEF692C9232B826F007747E4 /* TravelApp.app */;
 			productType = "com.apple.product-type.application";
@@ -360,6 +365,9 @@
 				Base,
 			);
 			mainGroup = FEF692C0232B826F007747E4;
+			packageReferences = (
+				FEDCE1E7261309FA0017D400 /* XCRemoteSwiftPackageReference "Reachability" */,
+			);
 			productRefGroup = FEF692CA232B826F007747E4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -457,7 +465,7 @@
 				FEE00D40233A59A00047CF83 /* ExchangeService.swift in Sources */,
 				FEA55B762366E48600A9F18D /* WeatherStruct.swift in Sources */,
 				FE34DC26235EE7DC006F5675 /* AlertMessages.swift in Sources */,
-				FE1C0911236836CD009C7E74 /* TranslationViewController.swift in Sources */,
+				FE1C0911236836CD009C7E74 /* TranslationViewController .swift in Sources */,
 				FEF692CD232B826F007747E4 /* AppDelegate.swift in Sources */,
 				FE609E4E237460A100C37DA3 /* ApiKeyExtractor.swift in Sources */,
 				FEA55B7A2366FF6000A9F18D /* RatesStruct.swift in Sources */,
@@ -740,6 +748,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FEDCE1E7261309FA0017D400 /* XCRemoteSwiftPackageReference "Reachability" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FEDCE1E8261309FA0017D400 /* Reachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FEDCE1E7261309FA0017D400 /* XCRemoteSwiftPackageReference "Reachability" */;
+			productName = Reachability;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FEF692C1232B826F007747E4 /* Project object */;
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Reachability
 
 final class RateViewController: UIViewController {
     
@@ -16,6 +17,8 @@ final class RateViewController: UIViewController {
     private var dataPicker = [String:String]()
     private var activeCurrencyChoice = String()
     private lazy var result = self.dataPicker.map{$0.key}.sorted()
+    private let reachability = try! Reachability()
+
     
     //  MARK: - Outlets
     
@@ -44,11 +47,15 @@ final class RateViewController: UIViewController {
                     self.euroConversion.text = String(Int(currencies * actualRate))
                 }
                 else {
-                    self.showAlert(alert: .alertInputNumber)
+                    DispatchQueue.main.async {
+                        self.showAlert(alert: .alertInputNumber)
+                    }
                 }
             }
             else {
-                self.showAlert(alert: .alertNetworkMessage)
+                DispatchQueue.main.async {
+                    self.showAlert(alert: .alertNetworkMessage)
+                }
             }
         })
     }
@@ -62,6 +69,43 @@ final class RateViewController: UIViewController {
     }
    
     
+    @objc func reachabilityChanged(note: Notification) {
+        let reachability = note.object as! Reachability
+        switch reachability.connection {
+        case .wifi:
+            print("Wifi Connection")
+        case .cellular:
+            print("Cellular Connection")
+        case .unavailable:
+            print("No Connection")
+            DispatchQueue.main.async {
+                self.showAlert(alert: .alertNetworkMessage)
+            }
+        case .none:
+            print("No Connection")
+        }
+    }
+        
+    // MARK: - viewWillAppear
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
+           do {
+               try reachability.startNotifier()
+           } catch {
+               print("Unable to start notifier")
+           }
+       
+        exchangeService.getSymbols { (success, symbols) in
+            if success {
+                    guard let symbols = symbols else { return }
+                    self.dataPicker = symbols.symbols
+                    self.symbolsPickerView.reloadAllComponents()
+            }
+        }
+    }
+
     // MARK: - viewDidLoad
 
     override func viewDidLoad() {
@@ -75,15 +119,14 @@ final class RateViewController: UIViewController {
         setUpPickerView()
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:)))
         view.addGestureRecognizer(tap)
-        exchangeService.getSymbols { (success, symbols) in
-            if success {
-                    guard let symbols = symbols else { return }
-                    self.dataPicker = symbols.symbols
-                    self.symbolsPickerView.reloadAllComponents()
-            } else {
-                self.showAlert(alert: .alertNetworkMessage)
-            }
-        }
+    }
+    
+    // MARK: - viewDidDisappear
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        reachability.stopNotifier()
+        NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: reachability)
     }
 }
 
@@ -103,7 +146,6 @@ extension RateViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-        
         activeCurrencyChoice = result[row]
     }
 }

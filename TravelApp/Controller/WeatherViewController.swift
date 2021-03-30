@@ -57,10 +57,17 @@ final class WeatherViewController: UIViewController, CLLocationManagerDelegate {
         weatherService.getWeatherDescription(city: city) { (success, weatherData) in
             DispatchQueue.main.async { 
                 if success{
-                    guard let weatherData = weatherData else { return }
-                    self.setUpUi(tempLabel: self.tempLabel, tempFeelLabel: self.tempFeelLabel, tempMinLabel: self.tempMinLabel, tempMaxlabel: self.tempMaxlabel, weatherLabel: self.weatherLabel, weatherImageView: self.weatherImageView, index: 0, weatherData: weatherData)
-                } else {
-                    print("bad")
+                    if self.cityTextField.text != nil{
+                        guard let weatherData = weatherData else { return }
+                        self.setUpUi(tempLabel: self.tempLabel, tempFeelLabel: self.tempFeelLabel, tempMinLabel: self.tempMinLabel, tempMaxlabel: self.tempMaxlabel, weatherLabel: self.weatherLabel, weatherImageView: self.weatherImageView, index: 0, weatherData: weatherData)
+                    } else {
+                        self.showAlert(alert: .alertInputText)
+                    }
+                }
+                else {
+                    DispatchQueue.main.async {
+                        self.showAlert(alert:.alertNetworkMessage)
+                    }
                 }
             }
         }
@@ -74,7 +81,9 @@ final class WeatherViewController: UIViewController, CLLocationManagerDelegate {
                     self.cityLabel.text = weatherData.name
                     self.setUpUi(tempLabel: self.tempLabel, tempFeelLabel: self.tempFeelLabel, tempMinLabel: self.tempMinLabel, tempMaxlabel: self.tempMaxlabel, weatherLabel: self.weatherLabel, weatherImageView: self.weatherImageView, index: 0, weatherData: weatherData)
                 } else {
-                    self.showAlert(alert:.alertNetworkMessage)
+                    DispatchQueue.main.async {
+                        self.showAlert(alert:.alertNetworkMessage)
+                    }
                 }
             }
         })

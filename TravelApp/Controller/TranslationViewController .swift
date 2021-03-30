@@ -105,5 +105,6 @@ final class TranslationViewController: UIViewController,UITextViewDelegate {
         views()
         buttons()
         }
+ 
     }
 
